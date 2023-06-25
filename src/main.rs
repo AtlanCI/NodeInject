@@ -16,7 +16,7 @@ fn main() {
         println!("You may have already installed the hook.Please check manually.");
         return;
     }
-    if !file_exist("./resources/node_modules.asar") {
+    if !file_exist("./node_modules.asar") {
         println!("no node_modules.asar found");
         println!("move me to the root of your typora installation(the same directory as executable of electron)");
         return;
@@ -28,7 +28,7 @@ fn main() {
     println!("applying patch");
     append_require_to_file();
     println!("packing node_modules.asar");
-    rasar::pack("./node","./resources/node_modules.asar").unwrap();
+    rasar::pack("./node","./node_modules.asar").unwrap();
     println!("done!");
 }
 fn file_exist(archive: &str) -> bool {
